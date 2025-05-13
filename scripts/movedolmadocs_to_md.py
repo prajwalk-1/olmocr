@@ -78,16 +78,6 @@ def main():
                 # Example: source_file = 's3://ai2-oe-data/jakep/pdfdata/pdelfin_testset/fcffd2dd327d4e58d3c6d1d22ba62531c863_page8.pdf'
                 # We want to end up with: 'fcffd2dd327d4e58d3c6d1d22ba62531c863_page8_pdelf.md'
 
-                # 1) Extract just the filename from the path
-                # 2) Remove '.pdf'
-                # 3) Append '_pdelf.md'
-                source_filename = os.path.basename(source_file)  # e.g. 'fcffd2dd327d4e58d3c6d1d22ba62531c863_page8.pdf'
-                if source_filename.lower().endswith(".pdf"):
-                    source_filename = source_filename[:-4]  # remove .pdf
-
-                output_filename = f"{source_filename}_pdelf.md"
-                output_path = os.path.join(args.output_dir, output_filename)
-
                 # Append the text to the corresponding file
                 # If you want to overwrite instead, change mode to 'w'
                 with open(output_path, "a", encoding="utf-8") as f:
